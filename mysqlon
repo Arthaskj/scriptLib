@@ -1,0 +1,8 @@
+#!/usr/bin/expect
+set pwd 
+set timeout 30
+spawn mysql -u arthas -p mytest -h 119.29.236.160
+expect "password"
+send "$pwd\r"
+interact
+#远程登录mysql

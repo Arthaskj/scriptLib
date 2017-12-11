@@ -1,0 +1,2 @@
+#!/bin/bash
+mysql -u arthas -p mytest < ~/Documents/mysqlBackUp/mytest.sql

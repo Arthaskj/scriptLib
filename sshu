@@ -1,0 +1,10 @@
+#!/usr/bin/expect 
+set pwd 
+set timeout 30
+spawn ssh -l ubuntu 119.29.236.160
+expect "password"
+send "$pwd\r"
+expect "VM-124-44"
+send "cd /var/www/html\r"
+interact
+

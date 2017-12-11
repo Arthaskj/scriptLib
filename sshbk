@@ -1,0 +1,25 @@
+#!/usr/bin/expect
+set pwd 
+set timeout 40
+spawn ssh -l ubuntu 119.29.236.160
+expect "password"
+send "$pwd\r"
+expect "VM-124-44"
+send "mysqldump -u arthas -p mytest > ~/mytest.sql\r"
+expect "password"
+send "$pwd\r"
+expect "VM-124-44"
+send "exit\r"
+expect "kejundeMacBook-Air"
+spawn scp -r ubuntu@119.29.236.160:/var/www/html/editor.md/blog/*.html /Users/kejun/Documents/mysqlBackUp/blog
+expect "password"
+send "$pwd\r"
+expect "kejundeMacBook-Air"
+spawn scp -r ubuntu@119.29.236.160:~/mytest.sql /Users/kejun/Documents/mysqlBackUp/
+expect "password"
+send "$pwd\r"
+
+
+
+interact
+
